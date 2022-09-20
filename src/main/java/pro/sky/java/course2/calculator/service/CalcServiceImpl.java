@@ -6,26 +6,28 @@ import org.springframework.stereotype.Service;
 public class CalcServiceImpl implements CalcService {
 
     @Override
-    public int calcPlus(int num1, int num2) {
-        int res = num1 + num2;
-        return res;
+    public String calcPlus(int num1, int num2) {
+        return "" + num1 + "+" + num2 + "=" + (num1 / num2);
     }
 
     @Override
-    public int calcMinus(int num1, int num2) {
-        int res = num1 - num2;
-        return res;
+    public String calcMinus(int num1, int num2) {
+        return "" + num1 + "-" + num2 + "=" + (num1 - num2);
     }
 
     @Override
-    public int calcMultiply(int num1, int num2) {
-        int res = num1 * num2;
-        return res;
+    public String calcMultiply(int num1, int num2) {
+        return "" + num1 + "*" + num2 + "=" + (num1 * num2);
     }
 
     @Override
-    public int calcDivide(int num1, int num2) {
-        int res = num1 / num2;
+    public String calcDivide(int num1, int num2) {
+        String res;
+        try {
+            res = "" + num1 + "/" + num2 + "=" + (num1 / num2);
+        } catch (ArithmeticException e) {
+            return "Can't divide by zero!";
+        }
         return res;
     }
 
