@@ -41,14 +41,8 @@ public class CalcController {
 
     @GetMapping("/divide")
     public String showDivisionResult(@RequestParam int num1, @RequestParam int num2){
-        int res;
-        try {
-           res = calcService.calcDivide(num1, num2);
-        } catch (ArithmeticException e){
-            return "Can't divide by zero!";
-        }
-
+          int res = calcService.calcDivide(num1, num2);
         return ""+ num1 + "/" + num2 + "=" + res;
     }
-//    some text
+
 }
